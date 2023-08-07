@@ -10,6 +10,10 @@ class SpaceXSDK (databaseDriverFactory: DatabaseDriverFactory) {
     private val database = Database(databaseDriverFactory)
     private val api = SpaceXApi()
 
+    /**
+     * @param forceReload: true if requires to force reload
+     * @return List of Rocket Launches from db if it is not empty
+     */
     @Throws(Exception::class)
     suspend fun getLaunches(forceReload: Boolean): List<RocketLaunch> {
         val cachedLaunches = database.getAllLaunches()

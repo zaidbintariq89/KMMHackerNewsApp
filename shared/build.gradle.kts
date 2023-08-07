@@ -4,6 +4,7 @@ plugins {
     id("com.android.library")
     kotlin("plugin.serialization") version "1.8.21"
     id("com.squareup.sqldelight")
+    id("org.jetbrains.dokka")
 }
 
 group = "com.example.kmmtestapp"

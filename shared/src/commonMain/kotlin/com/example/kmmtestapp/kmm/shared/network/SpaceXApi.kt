@@ -18,6 +18,10 @@ class SpaceXApi {
         }
     }
 
+    /**
+     * @params null
+     * @return List of rocketLaunches in ascending order
+     */
     suspend fun getAllLaunches(): List<RocketLaunch> {
         return httpClient.get("https://api.spacexdata.com/v5/launches").body()
     }

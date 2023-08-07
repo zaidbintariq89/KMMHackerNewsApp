@@ -8,12 +8,18 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     private val database = AppDatabase(databaseDriverFactory.createDriver())
     private val dbQuery = database.appDatabaseQueries
 
+    /**
+     * remove all data from database
+     */
     internal fun clearDatabase() {
         dbQuery.transaction {
             dbQuery.removeAllLaunches()
         }
     }
 
+    /***
+     * @return Array of Launch from Database
+     */
     internal fun getAllLaunches(): List<RocketLaunch> {
         return dbQuery.selectAllLaunchesInfo(::mapLaunchSelecting).executeAsList()
     }
