@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "19175467615",
+    "project_id": "kmm-firebase-mvvm-4da87",
+    "storage_bucket": "kmm-firebase-mvvm-4da87.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:19175467615:android:4483c9a1a97252283c89ea",
+        "android_client_info": {
+          "package_name": "com.example.kmmtestapp.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "19175467615-5fg30r0s0kpfjv6n51monst9kv8ugh6q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZ-2vi3TDpNIXNcXwXv9gHgDMU-RjuPj8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "19175467615-5fg30r0s0kpfjv6n51monst9kv8ugh6q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

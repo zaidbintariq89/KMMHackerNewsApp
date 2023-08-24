@@ -53,6 +53,13 @@ kotlin {
                 implementation("com.google.android.material:material:1.9.0")
                 implementation("io.ktor:ktor-client-android:$ktorVersion")
                 implementation("com.squareup.sqldelight:android-driver:$sqlDelightVersion")
+
+                // Import the BoM for the Firebase platform
+                implementation(platform("com.google.firebase:firebase-bom:32.2.2"))
+                // Add the dependency for the Firebase Authentication library
+                // When using the BoM, you don't specify versions in Firebase library dependencies
+                implementation("com.google.firebase:firebase-analytics-ktx")
+                implementation("com.google.firebase:firebase-auth-ktx")
             }
         }
         val iosMain by getting {
