@@ -1,4 +1,3 @@
-//import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
@@ -7,12 +6,11 @@ plugins {
     id("org.jetbrains.dokka")
 }
 
-group = "com.example.kmmtestapp"
+group = "com.kmmhackernewsapp"
 version = "1.0"
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
 kotlin {
-    targetHierarchy.default()
 
     android {
         compilations.all {
@@ -38,6 +36,8 @@ kotlin {
     val dateTimeVersion = "0.4.0"
 
     sourceSets {
+        targetHierarchy.default()
+
         val commonMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
@@ -48,12 +48,15 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:$dateTimeVersion")
             }
         }
+        val commonTest by getting {
+            dependencies {
+                implementation(kotlin("test"))
+            }
+        }
         val androidMain by getting {
             dependencies {
-                implementation("com.google.android.material:material:1.9.0")
                 implementation("io.ktor:ktor-client-android:$ktorVersion")
                 implementation("com.squareup.sqldelight:android-driver:$sqlDelightVersion")
-
                 // Import the BoM for the Firebase platform
                 implementation(platform("com.google.firebase:firebase-bom:32.2.2"))
                 // Add the dependency for the Firebase Authentication library
@@ -63,21 +66,16 @@ kotlin {
                 implementation("com.google.firebase:firebase-firestore-ktx")
             }
         }
+        val androidUnitTest by getting
+        val iosX64Main by getting
+        val iosArm64Main by getting
+        val iosSimulatorArm64Main by getting
         val iosMain by getting {
             dependencies {
                 implementation("io.ktor:ktor-client-darwin:$ktorVersion")
                 implementation("com.squareup.sqldelight:native-driver:$sqlDelightVersion")
             }
         }
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test"))
-            }
-        }
-        val androidUnitTest by getting
-        val iosX64Main by getting
-        val iosArm64Main by getting
-        val iosSimulatorArm64Main by getting
         val iosX64Test by getting
         val iosArm64Test by getting
         val iosSimulatorArm64Test by getting
@@ -86,7 +84,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.example.kmmtestapp"
+    namespace = "com.kmmhackernewsapp.android"
     compileSdk = 33
     defaultConfig {
         minSdk = 24
@@ -100,6 +98,6 @@ android {
 
 sqldelight {
     database("AppDatabase") {
-        packageName = "com.example.kmmtestapp.kmm.shared.cache"
+        packageName = "com.kmmhackernewsapp.shared.cache"
     }
 }
