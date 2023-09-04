@@ -1,9 +1,10 @@
-package com.kmmhackernewsapp.android.ui
+package com.kmmhackernewsapp.android.ui.rocket
 
+import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
@@ -17,9 +18,8 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -31,13 +31,10 @@ import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import com.kmmhackernewsapp.Greeting
 import com.kmmhackernewsapp.android.MyApplicationTheme
-import com.kmmhackernewsapp.shared.cache.DatabaseDriverFactory
 import com.kmmhackernewsapp.shared.entity.RocketLaunch
-import com.kmmhackernewsapp.shared.network.SpaceXSDK
-import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
-    private val spaceXSdk: SpaceXSDK = SpaceXSDK(DatabaseDriverFactory(this))
+    private val mainViewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,7 +44,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    GreetingView(Greeting().greet(), spaceXSdk)
+                    GreetingView(Greeting().greet(), this, mainViewModel)
                 }
             }
         }
@@ -55,11 +52,9 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun GreetingView(text: String, spaceXSdk: SpaceXSDK? = null) {
-    val rocketState = remember {
-        mutableStateOf(emptyList<RocketLaunch>())
-    }
-    val mainScope = rememberCoroutineScope()
+fun GreetingView(text: String, context: Context, mainViewModel: MainViewModel) {
+    val rocketState by mainViewModel.rocketsLiveData.observeAsState(emptyList())
+
     Column(
         // inside this column we are specifying modifier
         // to specify max width and max height
@@ -81,22 +76,11 @@ fun GreetingView(text: String, spaceXSdk: SpaceXSDK? = null) {
 
         // API call
         LaunchedEffect(Unit) {
-            mainScope.launch {
-                kotlin.runCatching {
-                    spaceXSdk?.getLaunches(forceReload = false)
-                }.onSuccess {
-                    Log.d("MainActivity", "Data received = ${it?.toString()}")
-                    it?.let { rockets ->
-                        rocketState.value = rockets.sortedByDescending { rocket-> rocket.launchYear }
-                    }
-                }.onFailure {
-                    Log.d("MainActivity", "Data fetch error")
-                }
-            }
+            mainViewModel.fetchDataForRockets(context)
         }
 
         // bind data
-        ItemsListView(list = rocketState.value)
+        ItemsListView(list = rocketState)
     }
 }
 
@@ -115,6 +99,6 @@ fun ItemsListView(list: List<RocketLaunch>) {
 @Composable
 fun DefaultPreview() {
     MyApplicationTheme {
-        GreetingView("Hello, Android!")
+
     }
 }
