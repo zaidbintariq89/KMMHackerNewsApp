@@ -1,5 +1,6 @@
 package com.kmmhackernewsapp.android.ui.login
 
+import com.google.firebase.auth.FirebaseUser
 import com.kmmhackernewsapp.android.ui.login.model.LoginErrorModel
 import com.kmmhackernewsapp.android.ui.login.model.LoginResponseModel
 import com.kmmhackernewsapp.android.ui.login.model.LoginResult
@@ -9,6 +10,8 @@ import kotlinx.coroutines.tasks.await
 class LoginRepository {
     // create firebase manager
     private val firebaseManager = FireBaseManager()
+
+    fun checkIfLogin() : FirebaseUser? = firebaseManager.getFirebaseAuth().currentUser
 
     suspend fun signIn(email: String, password: String): LoginResult {
         val task = firebaseManager.getFirebaseAuth().signInWithEmailAndPassword(email, password)

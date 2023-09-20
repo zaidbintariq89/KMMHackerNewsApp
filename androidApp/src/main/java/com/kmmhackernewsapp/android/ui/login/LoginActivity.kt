@@ -1,6 +1,8 @@
 package com.kmmhackernewsapp.android.ui.login
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -31,6 +33,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kmmhackernewsapp.android.MyApplicationTheme
 import com.kmmhackernewsapp.android.R
+import com.kmmhackernewsapp.android.ui.rocket.MainActivity
 
 class LoginActivity : ComponentActivity() {
     private val loginViewModel: LoginViewModel by viewModels()
@@ -43,7 +46,12 @@ class LoginActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    LoginView(::onLoginCLicked)
+                    if (loginViewModel.checkIfUserLogin()) {
+                        startActivity(Intent(this, MainActivity::class.java))
+                        finish()
+                    } else {
+                        LoginView(::onLoginCLicked)
+                    }
                 }
             }
         }
@@ -51,6 +59,14 @@ class LoginActivity : ComponentActivity() {
 
     private fun onLoginCLicked(username: String, password: String) {
         loginViewModel.signIn(username, password)
+        loginViewModel.loginObserver.observe(this) { response ->
+            response?.let {
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            } ?: kotlin.run {
+                Toast.makeText(this, "Login failed", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 }
 
