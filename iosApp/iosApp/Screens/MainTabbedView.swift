@@ -21,7 +21,7 @@ struct MainTabbedView: View {
         UITabBar.appearance().backgroundColor = .white
     }
     
-    let sdk = SpaceXSDK(databaseDriverFactory: DatabaseDriverFactory())
+    let sdk = NetworkRepo(databaseDriverFactory: DatabaseDriverFactory())
 
     
     var body: some View {

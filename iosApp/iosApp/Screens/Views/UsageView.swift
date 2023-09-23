@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-struct View1: View {
+struct UsageView: View {
     var body: some View {
          CarouselView()
             .frame(width: 300, height: 100)

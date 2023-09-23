@@ -71,10 +71,10 @@ extension SearchView {
 
     @MainActor
     class ViewModel: ObservableObject {
-        let sdk: SpaceXSDK
+        let sdk: NetworkRepo
         @Published var launches = LoadableLaunches.loading
 
-        init(sdk: SpaceXSDK) {
+        init(sdk: NetworkRepo) {
             self.sdk = sdk
             self.loadLaunches(forceReload: false)
         }

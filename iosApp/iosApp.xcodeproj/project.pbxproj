@@ -26,9 +26,12 @@
 		8C3700572AAF3DC300987AA3 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3700562AAF3DC300987AA3 /* PostViewModel.swift */; };
 		8C37005A2AAF3DE800987AA3 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3700592AAF3DE800987AA3 /* Post.swift */; };
 		8C37005D2AAF48CB00987AA3 /* RocketLaunchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C37005C2AAF48CB00987AA3 /* RocketLaunchRow.swift */; };
-		8C42E4FA2AB7954F00AF560E /* View1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C42E4F92AB7954F00AF560E /* View1.swift */; };
-		8C42E4FC2AB7957200AF560E /* View2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C42E4FB2AB7957200AF560E /* View2.swift */; };
-		8C42E4FE2AB7957D00AF560E /* View3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C42E4FD2AB7957D00AF560E /* View3.swift */; };
+		8C42E4FA2AB7954F00AF560E /* UsageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C42E4F92AB7954F00AF560E /* UsageView.swift */; };
+		8C42E4FC2AB7957200AF560E /* EquipmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C42E4FB2AB7957200AF560E /* EquipmentView.swift */; };
+		8C42E4FE2AB7957D00AF560E /* PackageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C42E4FD2AB7957D00AF560E /* PackageView.swift */; };
+		8C42E5002ABF1A2500AF560E /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C42E4FF2ABF1A2500AF560E /* CardView.swift */; };
+		8C42E5022ABF1E2E00AF560E /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C42E5012ABF1E2E00AF560E /* TabBarItem.swift */; };
+		8C42E5042ABF21C400AF560E /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C42E5032ABF21C400AF560E /* TabBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -66,9 +69,12 @@
 		8C3700562AAF3DC300987AA3 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		8C3700592AAF3DE800987AA3 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		8C37005C2AAF48CB00987AA3 /* RocketLaunchRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketLaunchRow.swift; sourceTree = "<group>"; };
-		8C42E4F92AB7954F00AF560E /* View1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View1.swift; sourceTree = "<group>"; };
-		8C42E4FB2AB7957200AF560E /* View2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View2.swift; sourceTree = "<group>"; };
-		8C42E4FD2AB7957D00AF560E /* View3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View3.swift; sourceTree = "<group>"; };
+		8C42E4F92AB7954F00AF560E /* UsageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageView.swift; sourceTree = "<group>"; };
+		8C42E4FB2AB7957200AF560E /* EquipmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentView.swift; sourceTree = "<group>"; };
+		8C42E4FD2AB7957D00AF560E /* PackageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageView.swift; sourceTree = "<group>"; };
+		8C42E4FF2ABF1A2500AF560E /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		8C42E5012ABF1E2E00AF560E /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
+		8C42E5032ABF21C400AF560E /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +192,9 @@
 			isa = PBXGroup;
 			children = (
 				8C37005C2AAF48CB00987AA3 /* RocketLaunchRow.swift */,
+				8C42E4FF2ABF1A2500AF560E /* CardView.swift */,
+				8C42E5012ABF1E2E00AF560E /* TabBarItem.swift */,
+				8C42E5032ABF21C400AF560E /* TabBarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -193,9 +202,9 @@
 		8C42E4F82AB7953000AF560E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8C42E4F92AB7954F00AF560E /* View1.swift */,
-				8C42E4FB2AB7957200AF560E /* View2.swift */,
-				8C42E4FD2AB7957D00AF560E /* View3.swift */,
+				8C42E4F92AB7954F00AF560E /* UsageView.swift */,
+				8C42E4FB2AB7957200AF560E /* EquipmentView.swift */,
+				8C42E4FD2AB7957D00AF560E /* PackageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -296,9 +305,11 @@
 				8C37005D2AAF48CB00987AA3 /* RocketLaunchRow.swift in Sources */,
 				8C3700542AAF2E7600987AA3 /* ThirdView.swift in Sources */,
 				8C3700512AAF2E6100987AA3 /* FullScreenNavigationViewType.swift in Sources */,
-				8C42E4FC2AB7957200AF560E /* View2.swift in Sources */,
-				8C42E4FA2AB7954F00AF560E /* View1.swift in Sources */,
+				8C42E5022ABF1E2E00AF560E /* TabBarItem.swift in Sources */,
+				8C42E4FC2AB7957200AF560E /* EquipmentView.swift in Sources */,
+				8C42E4FA2AB7954F00AF560E /* UsageView.swift in Sources */,
 				8C37004C2AAF2E2100987AA3 /* SetReactiveMethods.swift in Sources */,
+				8C42E5002ABF1A2500AF560E /* CardView.swift in Sources */,
 				8C37003D2AAF2DA500987AA3 /* ChatView.swift in Sources */,
 				8C3700522AAF2E6100987AA3 /* FullScreenNavigationView.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
@@ -308,7 +319,8 @@
 				8C37004D2AAF2E2100987AA3 /* AppEventsManager.swift in Sources */,
 				8C37005A2AAF3DE800987AA3 /* Post.swift in Sources */,
 				8C3700442AAF2DBC00987AA3 /* ProfileView.swift in Sources */,
-				8C42E4FE2AB7957D00AF560E /* View3.swift in Sources */,
+				8C42E4FE2AB7957D00AF560E /* PackageView.swift in Sources */,
+				8C42E5042ABF21C400AF560E /* TabBarView.swift in Sources */,
 				8C3700532AAF2E7600987AA3 /* SecondView.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 				8C3700482AAF2DC800987AA3 /* SessionsView.swift in Sources */,

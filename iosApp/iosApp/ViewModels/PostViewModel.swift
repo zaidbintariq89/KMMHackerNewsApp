@@ -13,8 +13,8 @@ class PostViewModel: ObservableObject {
     @Published var posts: [Post] = []
     @Published var rockets: [RocketLaunch] = []
     
-    var spaceXSDK = SpaceXSDK(databaseDriverFactory: DatabaseDriverFactory())
-    
+    var spaceXSDK = NetworkRepo(databaseDriverFactory: DatabaseDriverFactory())
+
     
     func fetchData() async {
         

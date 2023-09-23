@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-struct View3: View {
+struct PackageView: View {
     var body: some View {
         Color.green
             .opacity(0.2)
