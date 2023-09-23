@@ -9,7 +9,9 @@
 import SwiftUI
 import shared
 
+/// `RocketLaunchRow` is a SwiftUI view that displays information about a rocket launch.
 struct RocketLaunchRow: View {
+    /// The rocket launch information to display.
     var rocketLaunch: RocketLaunch
 
     var body: some View {
@@ -26,19 +28,21 @@ struct RocketLaunchRow: View {
 }
 
 extension RocketLaunchRow {
-   private var launchText: String {
-       if let isSuccess = rocketLaunch.launchSuccess {
-           return isSuccess.boolValue ? "Successful" : "Unsuccessful"
-       } else {
-           return "No data"
-       }
-   }
+    /// Computes the text to display for the launch success status.
+    private var launchText: String {
+        if let isSuccess = rocketLaunch.launchSuccess {
+            return isSuccess.boolValue ? "Successful" : "Unsuccessful"
+        } else {
+            return "No data"
+        }
+    }
 
-   private var launchColor: Color {
-       if let isSuccess = rocketLaunch.launchSuccess {
-           return isSuccess.boolValue ? Color.green : Color.red
-       } else {
-           return Color.gray
-       }
-   }
+    /// Computes the color for the launch success status.
+    private var launchColor: Color {
+        if let isSuccess = rocketLaunch.launchSuccess {
+            return isSuccess.boolValue ? Color.green : Color.red
+        } else {
+            return Color.gray
+        }
+    }
 }

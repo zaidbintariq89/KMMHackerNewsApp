@@ -8,11 +8,16 @@
 
 import SwiftUI
 
+/// `TabBarItem` is a SwiftUI view that represents an individual tab item within a tab bar.
 struct TabBarItem: View {
+    /// A binding to the currently selected tab.
     @Binding var currentTab: Int
+    /// A namespace used for managing animations.
     let namespace: Namespace.ID
     
+    /// The name or title of the tab item.
     var tabBarItemName: String
+    /// The index of the tab item.
     var tab: Int
     
     var body: some View {
