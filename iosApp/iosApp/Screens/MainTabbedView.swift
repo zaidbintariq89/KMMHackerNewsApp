@@ -70,7 +70,7 @@ struct MainTabbedView: View {
                         .tag(0)
                     
                     // Tab 2: BillingView
-                    BillingView(viewModel: .init(sdk: sdk))
+                    BillingView()
                         .tabItem {
                             Image(systemName: "dollarsign.square")
                             Text("Billing") // Add text to the tab
@@ -78,7 +78,7 @@ struct MainTabbedView: View {
                         .tag(1)
                     
                     // Tab 3: MessagesView
-                    MessagesView()
+                    MessagesView(viewModel: .init(sdk: sdk))
                         .tabItem {
                             Image(systemName: "message.badge.filled.fill")
                             Text("Messages") // Add text to the tab
