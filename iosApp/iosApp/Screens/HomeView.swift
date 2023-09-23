@@ -48,7 +48,7 @@ struct HomeView: View {
                     PackageView().tag(2)
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
-                .edgesIgnoringSafeArea(.all)
+//                .edgesIgnoringSafeArea(.all)
         }
         .background(Color.gray.opacity(0.2)) // Set the background color to yellow for the entire body
     }
