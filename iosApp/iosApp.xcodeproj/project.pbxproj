@@ -12,11 +12,11 @@
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		8C3700312AAF2D4C00987AA3 /* MainTabbedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3700302AAF2D4C00987AA3 /* MainTabbedView.swift */; };
-		8C37003D2AAF2DA500987AA3 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C37003C2AAF2DA500987AA3 /* ChatView.swift */; };
-		8C37003F2AAF2DAC00987AA3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C37003E2AAF2DAC00987AA3 /* HomeView.swift */; };
-		8C3700442AAF2DBC00987AA3 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3700432AAF2DBC00987AA3 /* ProfileView.swift */; };
-		8C3700462AAF2DC200987AA3 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3700452AAF2DC100987AA3 /* SearchView.swift */; };
-		8C3700482AAF2DC800987AA3 /* SessionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3700472AAF2DC800987AA3 /* SessionsView.swift */; };
+		8C37003D2AAF2DA500987AA3 /* SupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C37003C2AAF2DA500987AA3 /* SupportView.swift */; };
+		8C37003F2AAF2DAC00987AA3 /* ServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C37003E2AAF2DAC00987AA3 /* ServicesView.swift */; };
+		8C3700442AAF2DBC00987AA3 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3700432AAF2DBC00987AA3 /* MoreView.swift */; };
+		8C3700462AAF2DC200987AA3 /* BillingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3700452AAF2DC100987AA3 /* BillingView.swift */; };
+		8C3700482AAF2DC800987AA3 /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3700472AAF2DC800987AA3 /* MessagesView.swift */; };
 		8C37004C2AAF2E2100987AA3 /* SetReactiveMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C37004A2AAF2E2100987AA3 /* SetReactiveMethods.swift */; };
 		8C37004D2AAF2E2100987AA3 /* AppEventsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C37004B2AAF2E2100987AA3 /* AppEventsManager.swift */; };
 		8C3700512AAF2E6100987AA3 /* FullScreenNavigationViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C37004F2AAF2E6100987AA3 /* FullScreenNavigationViewType.swift */; };
@@ -55,13 +55,13 @@
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C3700302AAF2D4C00987AA3 /* MainTabbedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbedView.swift; sourceTree = "<group>"; };
-		8C37003C2AAF2DA500987AA3 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
-		8C37003E2AAF2DAC00987AA3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		8C37003C2AAF2DA500987AA3 /* SupportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportView.swift; sourceTree = "<group>"; };
+		8C37003E2AAF2DAC00987AA3 /* ServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesView.swift; sourceTree = "<group>"; };
 		8C3700412AAF2DB300987AA3 /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
 		8C3700422AAF2DB300987AA3 /* ThirdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdView.swift; sourceTree = "<group>"; };
-		8C3700432AAF2DBC00987AA3 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		8C3700452AAF2DC100987AA3 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
-		8C3700472AAF2DC800987AA3 /* SessionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsView.swift; sourceTree = "<group>"; };
+		8C3700432AAF2DBC00987AA3 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
+		8C3700452AAF2DC100987AA3 /* BillingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillingView.swift; sourceTree = "<group>"; };
+		8C3700472AAF2DC800987AA3 /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
 		8C37004A2AAF2E2100987AA3 /* SetReactiveMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetReactiveMethods.swift; sourceTree = "<group>"; };
 		8C37004B2AAF2E2100987AA3 /* AppEventsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppEventsManager.swift; sourceTree = "<group>"; };
 		8C37004F2AAF2E6100987AA3 /* FullScreenNavigationViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenNavigationViewType.swift; sourceTree = "<group>"; };
@@ -142,13 +142,13 @@
 			isa = PBXGroup;
 			children = (
 				8C42E4F82AB7953000AF560E /* Views */,
-				8C37003C2AAF2DA500987AA3 /* ChatView.swift */,
-				8C37003E2AAF2DAC00987AA3 /* HomeView.swift */,
-				8C3700472AAF2DC800987AA3 /* SessionsView.swift */,
-				8C3700452AAF2DC100987AA3 /* SearchView.swift */,
+				8C37003C2AAF2DA500987AA3 /* SupportView.swift */,
+				8C37003E2AAF2DAC00987AA3 /* ServicesView.swift */,
+				8C3700472AAF2DC800987AA3 /* MessagesView.swift */,
+				8C3700452AAF2DC100987AA3 /* BillingView.swift */,
 				8C3700412AAF2DB300987AA3 /* SecondView.swift */,
 				8C3700422AAF2DB300987AA3 /* ThirdView.swift */,
-				8C3700432AAF2DBC00987AA3 /* ProfileView.swift */,
+				8C3700432AAF2DBC00987AA3 /* MoreView.swift */,
 				8C3700302AAF2D4C00987AA3 /* MainTabbedView.swift */,
 			);
 			path = Screens;
@@ -310,20 +310,20 @@
 				8C42E4FA2AB7954F00AF560E /* UsageView.swift in Sources */,
 				8C37004C2AAF2E2100987AA3 /* SetReactiveMethods.swift in Sources */,
 				8C42E5002ABF1A2500AF560E /* CardView.swift in Sources */,
-				8C37003D2AAF2DA500987AA3 /* ChatView.swift in Sources */,
+				8C37003D2AAF2DA500987AA3 /* SupportView.swift in Sources */,
 				8C3700522AAF2E6100987AA3 /* FullScreenNavigationView.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				8C3700312AAF2D4C00987AA3 /* MainTabbedView.swift in Sources */,
-				8C3700462AAF2DC200987AA3 /* SearchView.swift in Sources */,
-				8C37003F2AAF2DAC00987AA3 /* HomeView.swift in Sources */,
+				8C3700462AAF2DC200987AA3 /* BillingView.swift in Sources */,
+				8C37003F2AAF2DAC00987AA3 /* ServicesView.swift in Sources */,
 				8C37004D2AAF2E2100987AA3 /* AppEventsManager.swift in Sources */,
 				8C37005A2AAF3DE800987AA3 /* Post.swift in Sources */,
-				8C3700442AAF2DBC00987AA3 /* ProfileView.swift in Sources */,
+				8C3700442AAF2DBC00987AA3 /* MoreView.swift in Sources */,
 				8C42E4FE2AB7957D00AF560E /* PackageView.swift in Sources */,
 				8C42E5042ABF21C400AF560E /* TabBarView.swift in Sources */,
 				8C3700532AAF2E7600987AA3 /* SecondView.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
-				8C3700482AAF2DC800987AA3 /* SessionsView.swift in Sources */,
+				8C3700482AAF2DC800987AA3 /* MessagesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

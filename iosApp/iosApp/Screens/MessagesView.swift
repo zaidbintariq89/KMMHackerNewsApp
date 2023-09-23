@@ -1,13 +1,13 @@
 //
-//  ProfileView.swift
+//  SessionsView.swift
 //  FullScreenNavigationView
 //
 //
 
 import SwiftUI
 
-struct ProfileView: View {
+struct MessagesView: View {
     var body: some View {
-        Text("Profile View!")
+        Text("Sessions View!")
     }
 }

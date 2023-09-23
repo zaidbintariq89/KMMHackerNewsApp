@@ -6,7 +6,7 @@
 
 import SwiftUI
 
-struct ChatView: View {
+struct SupportView: View {
     var body: some View {
         NavigationView {
             List {
@@ -49,6 +49,6 @@ struct ChatView: View {
 
 struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
-        ChatView()
+        SupportView()
     }
 }

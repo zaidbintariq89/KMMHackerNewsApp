@@ -6,7 +6,7 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct ServicesView: View {
     
     @State var currentTab: Int = 0
     @State private var showActionSheet = false

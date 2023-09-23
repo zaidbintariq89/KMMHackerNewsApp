@@ -32,7 +32,7 @@ import shared
 //    }
 //}
 
-struct SearchView: View {
+struct BillingView: View {
   @ObservedObject private(set) var viewModel: ViewModel
 
     var body: some View {
@@ -61,7 +61,7 @@ struct SearchView: View {
     }
 }
 
-extension SearchView {
+extension BillingView {
 
     enum LoadableLaunches {
         case loading

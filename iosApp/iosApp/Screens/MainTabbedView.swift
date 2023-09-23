@@ -1,14 +1,3 @@
-//
-//  MainTabBarView.swift
-//  iosApp
-//
-//  Created by Kaleem Asad on 11/09/2023.
-//  Copyright © 2023 orgName. All rights reserved.
-//
-
-import Foundation
-
-
 import SwiftUI
 import shared
 
@@ -22,39 +11,43 @@ struct MainTabbedView: View {
     }
     
     let sdk = NetworkRepo(databaseDriverFactory: DatabaseDriverFactory())
-
     
     var body: some View {
         ZStack {
             TabView(selection: $tabSelected) {
                 
-                HomeView()
+                ServicesView()
                     .tabItem {
-                        Image(systemName: "house")
+                        Image(systemName: "iphone")
+                        Text("Services") // Add text to the tab
                     }
                     .tag(0)
                 
-                SearchView(viewModel: .init(sdk: sdk))
+                BillingView(viewModel: .init(sdk: sdk))
                     .tabItem {
-                        Image(systemName: "magnifyingglass.circle")
+                        Image(systemName: "dollarsign.square")
+                        Text("Billing") // Add text to the tab
                     }
                     .tag(1)
                 
-                SessionsView()
+                MessagesView()
                     .tabItem {
-                        Image(systemName: "video")
+                        Image(systemName: "message.badge.filled.fill")
+                        Text("Messages") // Add text to the tab
                     }
                     .tag(2)
                 
-                ChatView()
+                SupportView()
                     .tabItem {
                         Image(systemName: "message")
+                        Text("Support") // Add text to the tab
                     }
                     .tag(3)
                 
-                ProfileView()
+                MoreView()
                     .tabItem {
-                        Image(systemName: "person.crop.circle")
+                        Image(systemName: "ellipsis")
+                        Text("More") // Add text to the tab
                     }
                     .tag(4)
                 
@@ -64,5 +57,11 @@ struct MainTabbedView: View {
             FullScreenNavigationView(isShowing: $currentReactives.presentFullScreenView, content: AnyView(NavigationView { currentReactives.viewToShow.view }))
             
         }
+    }
+}
+
+struct MainTabbedView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainTabbedView()
     }
 }
