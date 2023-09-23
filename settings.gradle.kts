@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "KMMTestApp"
+rootProject.name = "KmmHackerNewsApp"
 include(":androidApp")
 include(":shared")
