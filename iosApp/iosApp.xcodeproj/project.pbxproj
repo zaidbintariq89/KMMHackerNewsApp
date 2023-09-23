@@ -34,6 +34,7 @@
 		8C42E5042ABF21C400AF560E /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C42E5032ABF21C400AF560E /* TabBarView.swift */; };
 		8C42E5062ABF7DB800AF560E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C42E5052ABF7DB800AF560E /* Constants.swift */; };
 		8C42E5082ABF9AC600AF560E /* ItemWithLeadingImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C42E5072ABF9AC600AF560E /* ItemWithLeadingImage.swift */; };
+		8C42E50A2ABFA93E00AF560E /* SupportHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C42E5092ABFA93E00AF560E /* SupportHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -79,6 +80,7 @@
 		8C42E5032ABF21C400AF560E /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		8C42E5052ABF7DB800AF560E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8C42E5072ABF9AC600AF560E /* ItemWithLeadingImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemWithLeadingImage.swift; sourceTree = "<group>"; };
+		8C42E5092ABFA93E00AF560E /* SupportHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 				8C42E5012ABF1E2E00AF560E /* TabBarItem.swift */,
 				8C42E5032ABF21C400AF560E /* TabBarView.swift */,
 				8C42E5072ABF9AC600AF560E /* ItemWithLeadingImage.swift */,
+				8C42E5092ABFA93E00AF560E /* SupportHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C3700572AAF3DC300987AA3 /* PostViewModel.swift in Sources */,
+				8C42E50A2ABFA93E00AF560E /* SupportHeaderView.swift in Sources */,
 				8C37005D2AAF48CB00987AA3 /* RocketLaunchRow.swift in Sources */,
 				8C3700542AAF2E7600987AA3 /* ThirdView.swift in Sources */,
 				8C3700512AAF2E6100987AA3 /* FullScreenNavigationViewType.swift in Sources */,
