@@ -32,6 +32,7 @@ struct MoreView: View {
                 .foregroundColor(.gray) // Set text color to light gray
                 .frame(maxWidth: .infinity, alignment: .leading) // Align text to the left
                 .padding(.leading, 20) // Add left padding
+                .padding(.bottom, 20)
         }
     }
 }
