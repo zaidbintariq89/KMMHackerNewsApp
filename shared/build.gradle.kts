@@ -66,6 +66,7 @@ kotlin {
                 implementation("com.google.firebase:firebase-firestore-ktx")
             }
         }
+        val androidUnitTest by getting
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting

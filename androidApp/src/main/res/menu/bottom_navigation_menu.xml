@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/services_tab"
+        android:title="@string/services_lbl"
+        android:icon="@drawable/ic_services_24"/>
+    <item
+        android:id="@+id/billing_tab"
+        android:title="@string/billing_lbl"
+        android:icon="@drawable/ic_currency_24"/>
+    <item
+        android:id="@+id/messages_tab"
+        android:title="@string/messages_lbl"
+        android:icon="@drawable/ic_message_24"/>
+    <item
+        android:id="@+id/support_tab"
+        android:title="@string/support_lbl"
+        android:icon="@drawable/ic_support_24"/>
+    <item
+        android:id="@+id/more_tab"
+        android:title="@string/more_lbl"
+        android:icon="@drawable/ic_more_horiz_24"/>
+</menu>
