@@ -2,13 +2,16 @@ package com.kmmhackernewsapp.shared.network
 
 import com.kmmhackernewsapp.shared.cache.Database
 import com.kmmhackernewsapp.shared.cache.DatabaseDriverFactory
+import com.kmmhackernewsapp.shared.entity.AccountsResponseModel
+import com.kmmhackernewsapp.shared.entity.BillingResponseModel
+import com.kmmhackernewsapp.shared.entity.PromotionsResponseModel
 import com.kmmhackernewsapp.shared.entity.RocketLaunch
-import com.kmmhackernewsapp.shared.network.api.SpaceXApi
+import com.kmmhackernewsapp.shared.network.api.NetworkApi
 
 
-class SpaceXSDK (databaseDriverFactory: DatabaseDriverFactory) {
+class NetworkRepo (databaseDriverFactory: DatabaseDriverFactory) {
     private val database = Database(databaseDriverFactory)
-    private val api = SpaceXApi()
+    private val api = NetworkApi()
 
     /**
      * @param forceReload: true if requires to force reload
@@ -25,5 +28,15 @@ class SpaceXSDK (databaseDriverFactory: DatabaseDriverFactory) {
                 database.createLaunches(it)
             }
         }
+    }
+
+    suspend fun getAllAccounts(): AccountsResponseModel {
+        return api.getAllAccounts()
+    }
+    suspend fun getPromotions(): PromotionsResponseModel {
+        return api.getPromotions()
+    }
+    suspend fun getBillingData(): BillingResponseModel {
+        return api.getBillingData()
     }
 }

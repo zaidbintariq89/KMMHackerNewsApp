@@ -76,6 +76,7 @@ fun GreetingView(text: String, context: Context, mainViewModel: MainViewModel) {
 
         // API call
         LaunchedEffect(Unit) {
+            mainViewModel.getAccounts(context)
             mainViewModel.fetchDataForRockets(context)
         }
 
