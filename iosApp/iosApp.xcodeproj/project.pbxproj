@@ -33,6 +33,7 @@
 		8C42E5022ABF1E2E00AF560E /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C42E5012ABF1E2E00AF560E /* TabBarItem.swift */; };
 		8C42E5042ABF21C400AF560E /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C42E5032ABF21C400AF560E /* TabBarView.swift */; };
 		8C42E5062ABF7DB800AF560E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C42E5052ABF7DB800AF560E /* Constants.swift */; };
+		8C42E5082ABF9AC600AF560E /* ItemWithLeadingImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C42E5072ABF9AC600AF560E /* ItemWithLeadingImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -77,6 +78,7 @@
 		8C42E5012ABF1E2E00AF560E /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		8C42E5032ABF21C400AF560E /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		8C42E5052ABF7DB800AF560E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8C42E5072ABF9AC600AF560E /* ItemWithLeadingImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemWithLeadingImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 				8C42E4FF2ABF1A2500AF560E /* CardView.swift */,
 				8C42E5012ABF1E2E00AF560E /* TabBarItem.swift */,
 				8C42E5032ABF21C400AF560E /* TabBarView.swift */,
+				8C42E5072ABF9AC600AF560E /* ItemWithLeadingImage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				8C3700462AAF2DC200987AA3 /* BillingView.swift in Sources */,
 				8C37003F2AAF2DAC00987AA3 /* ServicesView.swift in Sources */,
 				8C37004D2AAF2E2100987AA3 /* AppEventsManager.swift in Sources */,
+				8C42E5082ABF9AC600AF560E /* ItemWithLeadingImage.swift in Sources */,
 				8C37005A2AAF3DE800987AA3 /* Post.swift in Sources */,
 				8C3700442AAF2DBC00987AA3 /* MoreView.swift in Sources */,
 				8C42E4FE2AB7957D00AF560E /* PackageView.swift in Sources */,
