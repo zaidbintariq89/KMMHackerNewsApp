@@ -5,18 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.kmmhackernewsapp.android.databinding.BillingFragmentBinding
+import com.kmmhackernewsapp.android.databinding.UsageFragmentBinding
 
 class UsageFragment : Fragment() {
 
-    private lateinit var binding: BillingFragmentBinding
+    private lateinit var binding: UsageFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = BillingFragmentBinding.inflate(inflater, container, false)
+        binding = UsageFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 }

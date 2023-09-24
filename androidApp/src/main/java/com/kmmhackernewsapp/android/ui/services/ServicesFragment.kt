@@ -9,10 +9,12 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.tabs.TabLayoutMediator
 import com.kmmhackernewsapp.android.R
 import com.kmmhackernewsapp.android.databinding.ServicesFragmentBinding
+import com.kmmhackernewsapp.shared.entity.Account
 
 class ServicesFragment : Fragment() {
     private lateinit var binding: ServicesFragmentBinding
     private var viewModel: ServicesViewModel? = null
+    private var accountsList: List<Account>? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,6 +29,7 @@ class ServicesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         activity?.setTitle(R.string.services_lbl)
         viewModel = ViewModelProvider(this)[ServicesViewModel::class.java]
+        initAccountsView()
         initPagers()
     }
 
@@ -44,6 +47,21 @@ class ServicesFragment : Fragment() {
                     else -> ""
                 }
             }.attach()
+        }
+    }
+
+    private fun initAccountsView() {
+        viewModel?.getAllAccounts()
+        binding.servicesTopView.setOnClickListener {
+            accountsList?.let {
+                val accountsBottomSheet = AccountsBottomSheet(it)
+                accountsBottomSheet.show(childFragmentManager, AccountsBottomSheet.TAG)
+            }
+        }
+        viewModel?.accountsLiveData?.observe(viewLifecycleOwner) { response ->
+            response?.let {
+                accountsList = it.content.accounts
+            }
         }
     }
 }
