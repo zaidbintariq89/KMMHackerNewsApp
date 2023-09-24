@@ -26,7 +26,7 @@ struct TabBarItem: View {
         } label: {
             VStack {
                 Spacer()
-                Text(tabBarItemName).foregroundColor(currentTab == tab ? .red : .black)
+                Text(tabBarItemName).foregroundColor(currentTab == tab ? AppColors.appRed : .black)
                 if currentTab == tab {
                     Color.red
                         .frame(height: 2)

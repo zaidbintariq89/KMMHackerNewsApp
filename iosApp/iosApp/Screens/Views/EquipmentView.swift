@@ -11,7 +11,7 @@ import SwiftUI
 
 struct EquipmentView: View {
     var body: some View {
-        Color.red
+        AppColors.appRed
             .opacity(0.2)
             .edgesIgnoringSafeArea(.all)
     }

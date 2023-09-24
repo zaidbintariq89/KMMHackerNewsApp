@@ -26,10 +26,12 @@ struct TileView: View {
                     .resizable()
                     .frame(width: 20, height: 20)
                     .padding(.leading, 1)
+                    .foregroundColor(Color.white)
                 
                 Text(title)
                     .font(.headline)
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    .foregroundColor(Color.white)
             }
             .padding(20)
             .background(backgroundColor)

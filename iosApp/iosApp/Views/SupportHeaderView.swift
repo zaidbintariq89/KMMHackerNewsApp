@@ -12,7 +12,7 @@ import SwiftUI
 struct SupportHeaderView: View {
     var body: some View {
         ZStack {
-            Color.red // Set the background color
+            AppColors.appRed // Set the background color
             
             HStack {
                 VStack(alignment: .leading, spacing: 8) { // Align text to the left
@@ -34,7 +34,7 @@ struct SupportHeaderView: View {
                             .padding(10)
                             .background(Color.white)
                             .cornerRadius(10)
-                            .foregroundColor(.red)
+                            .foregroundColor(AppColors.appRed)
                     }
                 }
                 .padding(.leading, 20) // Adjust the trailing padding as needed

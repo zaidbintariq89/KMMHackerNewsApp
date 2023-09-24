@@ -23,7 +23,7 @@ struct ItemWithLeadingImage: View {
         self.title = title
         self.description = description
         self.imageName = imageName
-        self.imageColor = imageColor ?? .red // Default to red if color is not provided
+        self.imageColor = imageColor ?? AppColors.appRed // Default to red if color is not provided
     }
     
     var body: some View {

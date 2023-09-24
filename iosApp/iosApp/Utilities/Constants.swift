@@ -19,5 +19,8 @@ struct AppColors {
     
     // Custom Colors
     static let appGreen = Color("AppGreen")
+    static let appDarkGray = Color("AppDarkGray")
+    static let appRed = Color("AppRed")
+
 
 }

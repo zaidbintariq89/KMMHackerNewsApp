@@ -22,7 +22,7 @@ struct MainTabbedView: View {
     // Define the top header view
     fileprivate func topHeaderView() -> some View {
         return ZStack {
-            Color.red
+            AppColors.appRed
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
