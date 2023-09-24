@@ -16,6 +16,15 @@ struct ItemWithLeadingImage: View {
     let description: String?
     /// The name of the image to display.
     let imageName: String
+    /// The color of the image.
+    let imageColor: Color?
+    
+    init(title: String, description: String? = nil, imageName: String, imageColor: Color? = nil) {
+        self.title = title
+        self.description = description
+        self.imageName = imageName
+        self.imageColor = imageColor ?? .red // Default to red if color is not provided
+    }
     
     var body: some View {
         HStack {
@@ -23,7 +32,7 @@ struct ItemWithLeadingImage: View {
                 .resizable()
                 .frame(width: 18, height: 18)
                 .padding(.trailing, 10)
-                .foregroundColor(.red)
+                .foregroundColor(imageColor) // Use the provided or default color
             
             VStack(alignment: .leading) {
                 Text(title)

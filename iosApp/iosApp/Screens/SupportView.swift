@@ -27,39 +27,33 @@ struct SupportView: View {
                 .padding(.horizontal, 30) // Add 30-point leading and trailing padding
                 .frame(height: 50)
                 
-                NavigationView {
-                    List {
-                        ForEach((0..<2), id: \.self) { index in
-                            Section {
-                                NavigationLink(destination: Text("aaa")) {
-                                    Label("Billing & Accounts", systemImage: "capsule")
-                                }
-                                NavigationLink(destination: Text("aaa")) {
-                                    Label("Mobile", systemImage: "paintpalette")
-                                }
-                                NavigationLink(destination: Text("aaa")) {
-                                    Label("Home phone", systemImage: "paintpalette")
-                                }
-                                NavigationLink(destination: Text("aaa")) {
-                                    Label("Internet", systemImage: "paintpalette")
-                                }
-                                NavigationLink(destination: Text("aaa")) {
-                                    Label("TV & Streaming", systemImage: "paintpalette")
-                                }
-                                NavigationLink(destination: Text("aaa")) {
-                                    Label("Home Monitoring", systemImage: "paintpalette")
-                                }
-                            }
-                        }
-                    }
-                    //                    .navigationBarTitle("Support")
-                    .navigationBarTitleDisplayMode(.inline)
+                Text("Support Topics")
+                    .font(.title)
+                    .fontWeight(.regular)
+                    .padding(.leading, 30)
+                    .padding(.top, 30)
+                Divider() // Add a separator between items
+
+                LazyVStack(spacing: 5) {
+                    ItemWithLeadingImage(title: "Billing & Accounts", imageName: "book", imageColor: Color.gray)
+                    Divider() // Add a separator between items
+                    ItemWithLeadingImage(title: "Mobile", imageName: "iphone.circle", imageColor: Color.gray)
+                    Divider() // Add a separator between items
+                    ItemWithLeadingImage(title: "Home Phone", imageName: "iphone.circle", imageColor: Color.gray)
+                    Divider() // Add a separator between items
+                    ItemWithLeadingImage(title: "Internet", imageName: "internaldrive", imageColor: Color.gray)
+                    Divider() // Add a separator between items
+                    ItemWithLeadingImage(title: "TV & Streaming", imageName: "tv", imageColor: Color.gray)
+                    Divider() // Add a separator between items
+                    // Add more list items as needed
                 }
-                .accentColor(.accentColor)
+                .frame(maxWidth: .infinity)
+                .padding(.horizontal, 30) // Add horizontal padding
             }
         }
     }
 }
+
 
 struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
