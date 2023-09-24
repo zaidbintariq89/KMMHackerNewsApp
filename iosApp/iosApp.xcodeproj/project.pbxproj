@@ -35,6 +35,7 @@
 		8C42E5062ABF7DB800AF560E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C42E5052ABF7DB800AF560E /* Constants.swift */; };
 		8C42E5082ABF9AC600AF560E /* ItemWithLeadingImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C42E5072ABF9AC600AF560E /* ItemWithLeadingImage.swift */; };
 		8C42E50A2ABFA93E00AF560E /* SupportHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C42E5092ABFA93E00AF560E /* SupportHeaderView.swift */; };
+		8C42E50C2ABFC85600AF560E /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C42E50B2ABFC85600AF560E /* TileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -81,6 +82,7 @@
 		8C42E5052ABF7DB800AF560E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8C42E5072ABF9AC600AF560E /* ItemWithLeadingImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemWithLeadingImage.swift; sourceTree = "<group>"; };
 		8C42E5092ABFA93E00AF560E /* SupportHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportHeaderView.swift; sourceTree = "<group>"; };
+		8C42E50B2ABFC85600AF560E /* TileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 				8C42E5032ABF21C400AF560E /* TabBarView.swift */,
 				8C42E5072ABF9AC600AF560E /* ItemWithLeadingImage.swift */,
 				8C42E5092ABFA93E00AF560E /* SupportHeaderView.swift */,
+				8C42E50B2ABFC85600AF560E /* TileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				8C37003D2AAF2DA500987AA3 /* SupportView.swift in Sources */,
 				8C3700522AAF2E6100987AA3 /* FullScreenNavigationView.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				8C42E50C2ABFC85600AF560E /* TileView.swift in Sources */,
 				8C3700312AAF2D4C00987AA3 /* MainTabbedView.swift in Sources */,
 				8C3700462AAF2DC200987AA3 /* BillingView.swift in Sources */,
 				8C37003F2AAF2DAC00987AA3 /* ServicesView.swift in Sources */,

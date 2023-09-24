@@ -47,6 +47,5 @@ struct SupportHeaderView: View {
             }
         }
         .frame(height: 170) // Adjust the height as needed
-        Spacer()
     }
 }
