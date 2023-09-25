@@ -4,19 +4,170 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:id="@+id/bill_top_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:elevation="5dp"
+        android:background="@color/darkGrey"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="20dp"
+            android:padding="10dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/accountTypeLbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Demo"
+                android:textColor="@color/black"
+                android:textAllCaps="true"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/accountNumberTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Account: 899988221"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/accountServicesTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:text="Internet | TV | Home Phones | Smart Phone | Smart Home Monitoring | Wireless"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
     <TextView
-        android:id="@+id/txt_unlimited"
+        android:id="@+id/currentBalanceLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Billing"
+        android:text="Current balance:"
+        android:textSize="16sp"
         android:textColor="@color/black"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:layout_marginTop="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/bill_top_view"/>
 
+    <TextView
+        android:id="@+id/currentBalanceRequiredLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Payment required by:"
+        android:textSize="12sp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/currentBalanceLbl"/>
 
+    <TextView
+        android:id="@+id/currentBalanceDateLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dec 20, 2020"
+        android:textSize="12sp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/currentBalanceRequiredLbl"/>
+
+    <TextView
+        android:id="@+id/currentBalanceTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:text="$120.50"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/divBill1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bill_top_view" />
+
+    <View
+        android:id="@+id/divBill1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="20dp"
+        android:background="@color/darkGrey"
+        app:layout_constraintTop_toBottomOf="@id/currentBalanceDateLbl"/>
+
+    <TextView
+        android:id="@+id/payMethodLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Payment Method"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divBill1"/>
+
+    <TextView
+        android:id="@+id/payMethodDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Invoice"
+        android:textSize="12sp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/payMethodLbl"/>
+
+    <TextView
+        android:id="@+id/payMethodEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:text="Edit"
+        android:textColor="@color/blue"
+        android:drawableEnd="@drawable/ic_arrow_down_24"
+        android:drawableTint="@color/blue"
+        android:drawablePadding="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/divBill2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divBill1" />
+
+    <View
+        android:id="@+id/divBill2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="20dp"
+        android:background="@color/darkGrey"
+        app:layout_constraintTop_toBottomOf="@id/payMethodDesc"/>
+
+    <Button
+        android:id="@+id/makePayBtn"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Make a Payment"
+        android:textAllCaps="false"
+        android:layout_margin="25dp"
+        app:layout_constraintTop_toBottomOf="@id/divBill2"/>
+
+    <Button
+        android:id="@+id/viewBillBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View bill"
+        android:textAllCaps="false"
+        style="@style/OutlinedButton"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/makePayBtn"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
