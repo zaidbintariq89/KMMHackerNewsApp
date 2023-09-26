@@ -10,7 +10,7 @@ import Foundation
 import shared
 
 class PostViewModel: ObservableObject {
-    @Published var posts: [Post] = []
+//    @Published var posts: [Post] = []
     @Published var rockets: [RocketLaunch] = []
     
     var spaceXSDK = NetworkRepo(databaseDriverFactory: DatabaseDriverFactory())
@@ -23,18 +23,18 @@ class PostViewModel: ObservableObject {
         }
         
         
-        do {
-            if let url = URL(string: "https://jsonplaceholder.typicode.com/posts") {
-                let (data, _) = try await URLSession.shared.data(from: url)
-                let decoder = JSONDecoder()
-                let decodedPosts = try decoder.decode([Post].self, from: data)
-                DispatchQueue.main.async {
-                    self.posts = decodedPosts
-                }
-            }
-        } catch {
-            print("Error fetching data: \(error.localizedDescription)")
-        }
+//        do {
+//            if let url = URL(string: "https://jsonplaceholder.typicode.com/posts") {
+//                let (data, _) = try await URLSession.shared.data(from: url)
+//                let decoder = JSONDecoder()
+//                let decodedPosts = try decoder.decode([Post].self, from: data)
+//                DispatchQueue.main.async {
+//                    self.posts = decodedPosts
+//                }
+//            }
+//        } catch {
+//            print("Error fetching data: \(error.localizedDescription)")
+//        }
     }
 }
 

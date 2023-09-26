@@ -60,6 +60,10 @@ struct MessagesView: View {
                       self.launches = .loading
                       let launches = try await sdk.getLaunches(forceReload: forceReload)
                       self.launches = .result(launches)
+                    
+                    
+                      
+                      
                   } catch {
                       self.launches = .error(error.localizedDescription)
                   }

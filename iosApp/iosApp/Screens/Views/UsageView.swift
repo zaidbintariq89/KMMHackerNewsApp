@@ -11,6 +11,8 @@ import shared
 
 /// `UsageView` is a SwiftUI view that displays a carousel of `BannerView` items along with a `TitleDescriptionView`.
 struct UsageView: View {
+//    @ObservedObject private(set) var viewModel: ViewModel
+
     var body: some View {
         VStack {
             // Carousel of BannerView items
@@ -33,6 +35,7 @@ struct UsageView_Previews: PreviewProvider {
         UsageView()
     }
 }
+
 
 /// `BannerView` is a SwiftUI view that displays a banner with an image, title, description, and a link.
 struct BannerView: View {

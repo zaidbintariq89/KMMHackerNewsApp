@@ -62,7 +62,7 @@ struct MainTabbedView: View {
                 TabView(selection: $tabSelected) {
                     
                     // Tab 1: ServicesView
-                    ServicesView()
+                    ServicesView(viewModel: .init(sdk: sdk))
                         .tabItem {
                             Image(systemName: "iphone")
                             Text("Services") // Add text to the tab
