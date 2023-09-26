@@ -10,5 +10,5 @@ data class PromotionsResponseModel(
 
 @Serializable
 data class PromotionContent(
-    val accounts: List<Promotion>
+    val promotions: List<Promotion>
 )

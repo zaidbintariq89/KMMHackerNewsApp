@@ -14,8 +14,6 @@ class ServicesViewModel: ViewModel() {
     private val _accountLV: MutableLiveData<AccountsResponseModel?> = MutableLiveData()
     val accountsLiveData: LiveData<AccountsResponseModel?> = _accountLV
 
-    fun getText() = "This is service tab"
-
     fun getAllAccounts() {
         viewModelScope.launch {
             kotlin.runCatching {
