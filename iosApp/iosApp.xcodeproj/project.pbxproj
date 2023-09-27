@@ -36,6 +36,10 @@
 		8C42E5082ABF9AC600AF560E /* ItemWithLeadingImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C42E5072ABF9AC600AF560E /* ItemWithLeadingImage.swift */; };
 		8C42E50A2ABFA93E00AF560E /* SupportHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C42E5092ABFA93E00AF560E /* SupportHeaderView.swift */; };
 		8C42E50C2ABFC85600AF560E /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C42E50B2ABFC85600AF560E /* TileView.swift */; };
+		8C42E50E2AC3AC3100AF560E /* TitleDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C42E50D2AC3AC3100AF560E /* TitleDescriptionView.swift */; };
+		8C42E5102AC3AC5D00AF560E /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C42E50F2AC3AC5D00AF560E /* ProgressBar.swift */; };
+		8C42E5122AC3AC7800AF560E /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C42E5112AC3AC7800AF560E /* CarouselView.swift */; };
+		8C42E5142AC3ACB300AF560E /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C42E5132AC3ACB300AF560E /* BannerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -83,6 +87,10 @@
 		8C42E5072ABF9AC600AF560E /* ItemWithLeadingImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemWithLeadingImage.swift; sourceTree = "<group>"; };
 		8C42E5092ABFA93E00AF560E /* SupportHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportHeaderView.swift; sourceTree = "<group>"; };
 		8C42E50B2ABFC85600AF560E /* TileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
+		8C42E50D2AC3AC3100AF560E /* TitleDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleDescriptionView.swift; sourceTree = "<group>"; };
+		8C42E50F2AC3AC5D00AF560E /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		8C42E5112AC3AC7800AF560E /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
+		8C42E5132AC3ACB300AF560E /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +215,10 @@
 				8C42E5072ABF9AC600AF560E /* ItemWithLeadingImage.swift */,
 				8C42E5092ABFA93E00AF560E /* SupportHeaderView.swift */,
 				8C42E50B2ABFC85600AF560E /* TileView.swift */,
+				8C42E50D2AC3AC3100AF560E /* TitleDescriptionView.swift */,
+				8C42E50F2AC3AC5D00AF560E /* ProgressBar.swift */,
+				8C42E5112AC3AC7800AF560E /* CarouselView.swift */,
+				8C42E5132AC3ACB300AF560E /* BannerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -315,6 +327,7 @@
 			files = (
 				8C3700572AAF3DC300987AA3 /* PostViewModel.swift in Sources */,
 				8C42E50A2ABFA93E00AF560E /* SupportHeaderView.swift in Sources */,
+				8C42E50E2AC3AC3100AF560E /* TitleDescriptionView.swift in Sources */,
 				8C37005D2AAF48CB00987AA3 /* RocketLaunchRow.swift in Sources */,
 				8C3700542AAF2E7600987AA3 /* ThirdView.swift in Sources */,
 				8C3700512AAF2E6100987AA3 /* FullScreenNavigationViewType.swift in Sources */,
@@ -322,11 +335,14 @@
 				8C42E4FC2AB7957200AF560E /* EquipmentView.swift in Sources */,
 				8C42E4FA2AB7954F00AF560E /* UsageView.swift in Sources */,
 				8C37004C2AAF2E2100987AA3 /* SetReactiveMethods.swift in Sources */,
+				8C42E5142AC3ACB300AF560E /* BannerView.swift in Sources */,
+				8C42E5122AC3AC7800AF560E /* CarouselView.swift in Sources */,
 				8C42E5002ABF1A2500AF560E /* CardView.swift in Sources */,
 				8C37003D2AAF2DA500987AA3 /* SupportView.swift in Sources */,
 				8C3700522AAF2E6100987AA3 /* FullScreenNavigationView.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				8C42E50C2ABFC85600AF560E /* TileView.swift in Sources */,
+				8C42E5102AC3AC5D00AF560E /* ProgressBar.swift in Sources */,
 				8C3700312AAF2D4C00987AA3 /* MainTabbedView.swift in Sources */,
 				8C3700462AAF2DC200987AA3 /* BillingView.swift in Sources */,
 				8C37003F2AAF2DAC00987AA3 /* ServicesView.swift in Sources */,
