@@ -56,7 +56,7 @@ struct ServicesView: View {
             accountSelectView()
             TabBarView(currentTab: self.$currentTab)
             TabView(selection: self.$currentTab) {
-                UsageView().tag(0)
+                UsageView(viewModel: UsageView.ViewModel(sdk: sdk)).tag(0)
                 EquipmentView().tag(1)
                 PackageView().tag(2)
             }

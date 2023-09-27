@@ -11,12 +11,11 @@ import shared
 
 /// `UsageView` is a SwiftUI view that displays a carousel of `BannerView` items along with a `TitleDescriptionView`.
 struct UsageView: View {
-//    @ObservedObject private(set) var viewModel: ViewModel
-
+    @ObservedObject private(set) var viewModel: ViewModel
     var body: some View {
         VStack {
             // Carousel of BannerView items
-            CarouselView()
+            CarouselView(viewModel: CarouselView.ViewModel(sdk: viewModel.sdk))
                 .frame(maxWidth: .infinity)
                 .edgesIgnoringSafeArea(.all)
                 .background(Color.white)
@@ -28,16 +27,30 @@ struct UsageView: View {
             Spacer()
         }
     }
+    
 }
-
-struct UsageView_Previews: PreviewProvider {
-    static var previews: some View {
-        UsageView()
+extension UsageView {
+    
+    @MainActor
+    class ViewModel: ObservableObject {
+        let sdk: NetworkRepo
+        init(sdk: NetworkRepo) {
+            self.sdk = sdk
+        }
     }
 }
 
 
-/// `BannerView` is a SwiftUI view that displays a banner with an image, title, description, and a link.
+struct UsageView_Previews: PreviewProvider {
+    static var previews: some View {
+        let sdk = NetworkRepo(databaseDriverFactory: DatabaseDriverFactory())
+        UsageView(viewModel: UsageView.ViewModel(sdk: sdk))
+    }
+}
+
+
+
+/// `BannerView` is a SwiftUI view that displays a banner with an image loaded from a URL, title, description, and a link.
 struct BannerView: View {
     let imageName: String
     let title: String
@@ -46,12 +59,27 @@ struct BannerView: View {
     
     var body: some View {
         HStack {
-            // Banner image
-            Image(imageName)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 90, height: 90)
-                .cornerRadius(20)
+            // Banner image loaded from URL
+            AsyncImage(url: URL(string: imageName)) { phase in
+                switch phase {
+                case .empty:
+                    ProgressView()
+                case .success(let image):
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 90, height: 90)
+                        .cornerRadius(20)
+                case .failure:
+                    Image(systemName: "photo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 90, height: 90)
+                        .cornerRadius(20)
+                @unknown default:
+                    EmptyView()
+                }
+            }
             
             VStack(alignment: .leading) {
                 // Banner title
@@ -79,19 +107,74 @@ struct BannerView: View {
     }
 }
 
+
 /// `CarouselView` is a SwiftUI view that displays a carousel of `BannerView` items.
 struct CarouselView: View {
+    @ObservedObject private(set) var viewModel: ViewModel
+    
     var body: some View {
-        TabView {
-            BannerView(imageName: "bannerAdd", title: "Great Plans Great Price", description: "Make More Possible with a Perfect plan", url: URL(string: "https://example.com")!)
-            BannerView(imageName: "bannerAdd", title: "Great Plans Great Price", description: "Make More Possible with a Perfect plan. Make More Possible with a Perfect plan", url: URL(string: "https://example.com")!)
-            BannerView(imageName: "bannerAdd", title: "Great Plans Great Price", description: "Make More Possible with a Perfect plan", url: URL(string: "https://example.com")!)
-            // Add more BannerView instances for additional items
+        return bannersView()
+        
+    }
+    
+    private func bannersView() -> AnyView {
+        switch viewModel.promotionsResponse {
+        case .loading:
+            return AnyView(Text("Loading...").multilineTextAlignment(.center))
+        case .result(let promotionsResponse):
+            
+            return AnyView(TabView {
+                ForEach(promotionsResponse.content.promotions){
+                    promotion in
+                    BannerView(imageName: promotion.image, title: promotion.title, description: promotion.description_, url: (URL(string: promotion.link) ?? URL(string: "https://example.com"))!)
+                }
+            }
+                .tabViewStyle(PageTabViewStyle())
+                .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+            )
+        case .error(let description):
+            return AnyView(Text(description).multilineTextAlignment(.center))
         }
-        .tabViewStyle(PageTabViewStyle())
-        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
     }
 }
+
+extension CarouselView {
+    
+    enum LoadableBanners {
+        case loading
+        case result(PromotionsResponseModel)
+        case error(String)
+    }
+    
+    @MainActor
+    class ViewModel: ObservableObject {
+        let sdk: NetworkRepo
+        @Published var promotionsResponse = LoadableBanners.loading
+        
+        init(sdk: NetworkRepo) {
+            self.sdk = sdk
+            self.loadBanners()
+        }
+        
+        func loadBanners() {
+            Task {
+                do {
+                    self.promotionsResponse = .loading
+                    let promotionsResponse = try await sdk.getPromotions()
+                    self.promotionsResponse = .result(promotionsResponse)
+                } catch {
+                    self.promotionsResponse = .error(error.localizedDescription)
+                }
+            }
+        }
+    }
+}
+
+
+extension PromotionsResponseModel: Identifiable { }
+extension Promotion: Identifiable { }
+
+
 
 /// `TitleDescriptionView` is a SwiftUI view that displays a title, description, and a progress bar.
 struct TitleDescriptionView: View {

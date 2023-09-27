@@ -1,6 +1,9 @@
 import SwiftUI
 import shared
 
+// Create an instance of NetworkRepo for data fetching
+let sdk = NetworkRepo(databaseDriverFactory: DatabaseDriverFactory())
+
 // MainTabbedView is the main SwiftUI view for your tabbed interface.
 struct MainTabbedView: View {
     
@@ -16,8 +19,6 @@ struct MainTabbedView: View {
         UITabBar.appearance().backgroundColor = .white
     }
     
-    // Create an instance of NetworkRepo for data fetching
-    let sdk = NetworkRepo(databaseDriverFactory: DatabaseDriverFactory())
     
     // Define the top header view
     fileprivate func topHeaderView() -> some View {
