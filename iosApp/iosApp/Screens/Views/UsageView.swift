@@ -29,17 +29,6 @@ struct UsageView: View {
     }
     
 }
-extension UsageView {
-    
-    @MainActor
-    class ViewModel: ObservableObject {
-        let sdk: NetworkRepo
-        init(sdk: NetworkRepo) {
-            self.sdk = sdk
-        }
-    }
-}
-
 
 struct UsageView_Previews: PreviewProvider {
     static var previews: some View {
@@ -47,9 +36,5 @@ struct UsageView_Previews: PreviewProvider {
         UsageView(viewModel: UsageView.ViewModel(sdk: sdk))
     }
 }
-
-extension PromotionsResponseModel: Identifiable { }
-extension Promotion: Identifiable { }
-
 
 

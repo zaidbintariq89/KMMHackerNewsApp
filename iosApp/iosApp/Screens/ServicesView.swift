@@ -65,27 +65,6 @@ struct ServicesView: View {
         }
         .background(Color.gray.opacity(0.2)) // Set the background color to yellow for the entire body
     }
-    //    var body: some View {
-    //        VStack(spacing: 20){
-    //            Spacer()
-    //
-    //            Text("Home View!")
-    //
-    //            Button{
-    //                AppEventsManager.shared.navigateFullScreen.send((true, FullScreenNavigationViewType.secondView))
-    //            } label: {
-    //                Text("FullScreen Navigate to SecondView")
-    //            }
-    //
-    //            Button{
-    //                AppEventsManager.shared.navigateFullScreen.send((true, FullScreenNavigationViewType.thirdView(true)))
-    //            } label: {
-    //                Text("FullScreen Navigate to ThirdView")
-    //            }
-    //
-    //            Spacer()
-    //        }
-    //    }
 }
 
 struct HomeView_Previews: PreviewProvider {
@@ -94,51 +73,5 @@ struct HomeView_Previews: PreviewProvider {
     }
 }
 
-
-extension ServicesView {
-    
-    
-    enum LoadableAccounts {
-        case loading
-        case result(AccountsResponseModel)
-        case error(String)
-    }
-    
-    @MainActor
-    class ViewModel: ObservableObject {
-        let sdk: NetworkRepo
-        @Published var accountsData = LoadableAccounts.loading
-        init(sdk: NetworkRepo) {
-            self.sdk = sdk
-            self.loadAccounts()
-        }
-        
-        func loadAccounts() {
-            Task {
-                do {
-                    self.accountsData = .loading
-                    let _accounts = try await sdk.getAllAccounts()
-                    self.accountsData = .result(_accounts)
-                } catch {
-                    self.accountsData = .error(error.localizedDescription)
-                }
-            }
-        }
-        
-        func getAccountList() -> AccountsResponseModel?{
-            switch self.accountsData {
-            case .loading:
-                return nil
-            case .result(let accountData):
-                return accountData
-            case .error(_):
-                return nil
-            }
-        }
-    }
-}
-
-
-extension AccountsResponseModel: Identifiable { }
 
 
