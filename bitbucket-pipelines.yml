@@ -1,0 +1,25 @@
+image: atlassian/default-image:2
+
+pipelines:
+  branches:
+    develop:
+      # - step:
+      #     name: Install Git
+      #     script:
+      #       - apt-get update -qy
+      #       - apt-get install -y git
+
+      - step:
+          name: Build and Deploy
+          script:
+            - export SERVER_FOLDER=server  
+            - git diff --name-only $BITBUCKET_COMMIT_RANGE | grep $SERVER_FOLDER
+            - if [ $? -eq 0 ]; then
+                echo "Changes detected in $SERVER_FOLDER, triggering build and deploy";
+                # Add your build commands here
+                # ./gradlew buildFatJar
+                # Add your deploy commands here
+                # Example deploy command: eb deploy your-environment-name
+            - else
+                echo "No changes in $SERVER_FOLDER, skipping build and deploy";
+            - fi
