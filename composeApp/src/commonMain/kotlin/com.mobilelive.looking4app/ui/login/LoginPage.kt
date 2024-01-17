@@ -24,7 +24,6 @@ import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.LightMode
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -49,6 +48,7 @@ import com.mobilelive.looking4app.theme.LocalThemeIsDark
 import com.mobilelive.looking4app.ui.common.GradientButton
 import com.mobilelive.looking4app.ui.common.SimpleOutlinedEmailField
 import com.mobilelive.looking4app.ui.common.SimpleOutlinedPasswordTextField
+import com.mobilelive.looking4app.ui.dashboard.MainDashBoardScreen
 import com.mobilelive.looking4app.ui.register.RegisterScreen
 import com.mobilelive.looking4app.ui.resetPassword.ResetPasswordScreen
 import org.jetbrains.compose.resources.ExperimentalResourceApi
@@ -80,6 +80,9 @@ internal fun loginView() {
             is DataState.Success<List<Article>> -> {
                 println("Login::: Result = ${it.data}")
 //                showLoading = false
+                it.data.takeIf { list -> list.isNotEmpty() }?.let { dataList ->
+                    navigator?.push(MainDashBoardScreen())
+                }
             }
 
             is DataState.Error -> {
@@ -99,12 +102,6 @@ internal fun loginView() {
 //                LinearProgressIndicator( modifier = Modifier.fillMaxWidth())
 //            }
             Row(
-
-
-
-
-
-
                 horizontalArrangement = Arrangement.End
             ) {
                 var isDark by LocalThemeIsDark.current
@@ -174,7 +171,7 @@ internal fun loginView() {
                         roundedCornerShape = RoundedCornerShape(topStart = 30.dp, bottomEnd = 30.dp),
                         btnClick = {
                             println("Email = $email and Password = $password")
-//                            isValid = loginViewModel.isValidCredentials(email, password)
+                            isValid = loginViewModel.isValidCredentials(email, password)
 //                            if (isValid) {
 //                            }
 //                            showLoading = true

@@ -51,6 +51,10 @@ kotlin {
             implementation(libs.koin.compose)
 
             implementation(libs.voyager.navigator)
+            implementation(libs.voyager.tabNavigator)
+            implementation(libs.voyager.transitions)
+            implementation(libs.voyager.bottomSheetNavigator)
+
             implementation(libs.composeImageLoader)
             implementation(libs.moko.mvvm)
             implementation(libs.ktor.client.content.negotiation)
