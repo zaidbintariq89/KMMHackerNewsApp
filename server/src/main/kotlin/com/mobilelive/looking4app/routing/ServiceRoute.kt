@@ -1,13 +1,16 @@
 package com.mobilelive.looking4app.routing
 
-import com.example.routing.request.ServiceRequest
+import ServiceRequest
 import com.mobilelive.looking4app.exposed.Service
 import com.mobilelive.looking4app.services.ServiceService
-import io.ktor.http.*
-import io.ktor.server.application.*
-import io.ktor.server.request.*
-import io.ktor.server.response.*
-import io.ktor.server.routing.*
+import io.ktor.http.HttpStatusCode
+import io.ktor.server.application.call
+import io.ktor.server.request.receive
+import io.ktor.server.response.respond
+import io.ktor.server.routing.Route
+import io.ktor.server.routing.get
+import io.ktor.server.routing.post
+import io.ktor.server.routing.route
 
 fun Route.serviceRoute(serviceService: ServiceService) {
     route("/services") {
@@ -48,7 +51,7 @@ fun Route.serviceRoute(serviceService: ServiceService) {
 
         post {
             val service = call.receive<ServiceRequest>()
-            val createdService = serviceService.save(Service(id = 1, name = service.name, description = service.description))
+            val createdService = serviceService.save(Service(id = service.id ?: 1, name = service.name, description = service.description))
             call.respond(createdService)
         }
 

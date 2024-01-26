@@ -1,19 +1,21 @@
 package com.mobilelive.looking4app.routing
 
-import com.example.routing.request.UserLoginRequest
-import com.example.routing.request.UserRequest
-import com.example.routing.response.UserResponse
-import com.mobilelive.looking4app.exposed.Location
+import CommonValidator
+import UserLoginRequest
+import UserRequest
 import com.mobilelive.looking4app.exposed.User
+import com.mobilelive.looking4app.routing.response.UserResponse
 import com.mobilelive.looking4app.services.UserService
 import com.mobilelive.looking4app.services.toResponseWithLocationsServices
-import io.ktor.http.*
-import io.ktor.server.application.*
-import io.ktor.server.request.*
-import io.ktor.server.response.*
-import io.ktor.server.routing.*
-import java.util.*
-import kotlin.text.get
+import io.ktor.http.HttpStatusCode
+import io.ktor.server.application.call
+import io.ktor.server.request.receive
+import io.ktor.server.response.header
+import io.ktor.server.response.respond
+import io.ktor.server.routing.Route
+import io.ktor.server.routing.get
+import io.ktor.server.routing.post
+import io.ktor.server.routing.put
 
 
 fun Route.userRoute(userService: UserService) {
@@ -28,18 +30,23 @@ fun Route.userRoute(userService: UserService) {
             return@post
         }
 
-        val createdUser = userService.save(
-            user = userRequest.toModel()
-        )
-
-        if (createdUser != null) {
-            call.response.header(
-                name = "id",
-                value = createdUser.id.toString()
+        val isValidPassword = CommonValidator.isValidPassword(userRequest.password)
+        if (isValidPassword) {
+            val createdUser = userService.save(
+                user = userRequest.toModel()
             )
-            call.respond(HttpStatusCode.Created)
+
+            if (createdUser != null) {
+                call.response.header(
+                    name = "id",
+                    value = createdUser.id.toString()
+                )
+                call.respond(HttpStatusCode.Created)
+            } else {
+                call.respond(HttpStatusCode.BadRequest)
+            }
         } else {
-            call.respond(HttpStatusCode.BadRequest)
+            call.respond(HttpStatusCode.BadRequest, "Password must contains min 8 characters with number and digits")
         }
     }
 

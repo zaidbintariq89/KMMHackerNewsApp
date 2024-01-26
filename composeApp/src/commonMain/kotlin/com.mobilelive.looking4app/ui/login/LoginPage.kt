@@ -42,55 +42,58 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
-import com.mobilelive.looking4app.data.model.Article
+import cafe.adriel.voyager.navigator.Navigator
 import com.mobilelive.looking4app.data.repository.DataState
 import com.mobilelive.looking4app.theme.LocalThemeIsDark
+import com.mobilelive.looking4app.ui.MainDashboardScreen
 import com.mobilelive.looking4app.ui.common.GradientButton
+import com.mobilelive.looking4app.ui.common.ProgressIndicator
 import com.mobilelive.looking4app.ui.common.SimpleOutlinedEmailField
 import com.mobilelive.looking4app.ui.common.SimpleOutlinedPasswordTextField
-import com.mobilelive.looking4app.ui.dashboard.MainDashBoardScreen
 import com.mobilelive.looking4app.ui.register.RegisterScreen
 import com.mobilelive.looking4app.ui.resetPassword.ResetPasswordScreen
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
 class LoginScreen : Screen {
+    private val loginViewModel = LoginViewModel()
     @Composable
     override fun Content() {
-        loginView()
+        val navigator = LocalNavigator.current
+        loginView(loginViewModel, navigator)
     }
+}
+
+@Composable
+fun loginView(loginViewModel: LoginViewModel, navigator: Navigator?) {
+    loginViewModel.loginResponse.collectAsState().value.let { state ->
+        when (state) {
+            is DataState.Loading -> {
+                ProgressIndicator(isDialogIndicator = true)
+            }
+
+            is DataState.Success<Any> -> {
+                println("Login::: Success")
+                navigator?.replaceAll(MainDashboardScreen())
+            }
+
+            is DataState.Error -> {
+                println(state.exception)
+            }
+            else -> {}
+        }
+    }
+
+    loginContent(loginViewModel, navigator)
 }
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
-internal fun loginView() {
-    val navigator = LocalNavigator.current
+fun loginContent(loginViewModel: LoginViewModel, navigator: Navigator?) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var isValid by remember { mutableStateOf(true) }
-//    var showLoading by remember { mutableStateOf(false) }
-    val loginViewModel = LoginViewModel()
-
-    loginViewModel.allArticlesResponse.collectAsState().value?.let {
-        when (it) {
-            is DataState.Loading -> {
-                println("Login::: Loading data")
-            }
-
-            is DataState.Success<List<Article>> -> {
-                println("Login::: Result = ${it.data}")
-//                showLoading = false
-                it.data.takeIf { list -> list.isNotEmpty() }?.let { dataList ->
-                    navigator?.push(MainDashBoardScreen())
-                }
-            }
-
-            is DataState.Error -> {
-                println(it.exception)
-//                showLoading = false
-            }
-        }
-    }
+    var showLoading by remember { mutableStateOf(false) }
 
     Column(modifier = Modifier.fillMaxSize().windowInsetsPadding(WindowInsets.safeDrawing)) {
         Box(modifier = Modifier
@@ -98,9 +101,6 @@ internal fun loginView() {
             .fillMaxHeight()
             .background(color = Color.Transparent)
         ) {
-//            if(showLoading) {
-//                LinearProgressIndicator( modifier = Modifier.fillMaxWidth())
-//            }
             Row(
                 horizontalArrangement = Arrangement.End
             ) {
@@ -172,10 +172,10 @@ internal fun loginView() {
                         btnClick = {
                             println("Email = $email and Password = $password")
                             isValid = loginViewModel.isValidCredentials(email, password)
-//                            if (isValid) {
-//                            }
-//                            showLoading = true
-                            loginViewModel.fetchAllArticles()
+                            if (isValid) {
+                                showLoading = true
+                                loginViewModel.doLogin(email, password)
+                            }
                         }
                     )
 
@@ -194,7 +194,7 @@ internal fun loginView() {
                     Spacer(modifier = Modifier.padding(5.dp))
                     TextButton(onClick = {
 
-                        navigator?.push(ResetPasswordScreen())
+                        navigator?.push(MainDashboardScreen())
 
                     }) {
                         Text(

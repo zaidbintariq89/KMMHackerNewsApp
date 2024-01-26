@@ -1,6 +1,6 @@
 package com.mobilelive.looking4app.routing
 
-import com.example.routing.request.LocationRequest
+import com.mobilelive.looking4app.routing.request.LocationRequest
 import com.mobilelive.looking4app.exposed.Location
 import com.mobilelive.looking4app.services.LocationService
 import io.ktor.http.*
@@ -8,7 +8,6 @@ import io.ktor.server.application.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import kotlin.text.get
 
 
 fun Route.locationRoute(locationService: LocationService) {

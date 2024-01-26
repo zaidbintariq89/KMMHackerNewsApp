@@ -36,12 +36,12 @@ fun SimpleOutlinedEmailField(onValueChanged: (String) -> Unit) {
         shape = RoundedCornerShape(topEnd = 12.dp, bottomStart = 12.dp),
         label = {
             Text(
-                "Name or Email Address",
+                "Username or Email Address",
                 color = MaterialTheme.colorScheme.primary,
                 style = MaterialTheme.typography.labelMedium,
             )
         },
-        placeholder = { Text(text = "Name or Email Address") },
+        placeholder = { Text(text = "Username or Email Address") },
         keyboardOptions = KeyboardOptions(
             imeAction = ImeAction.Next,
             keyboardType = KeyboardType.Email

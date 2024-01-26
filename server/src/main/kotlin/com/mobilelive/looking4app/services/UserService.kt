@@ -1,13 +1,12 @@
 package com.mobilelive.looking4app.services
 
-import com.example.routing.request.UserRequest
-import com.example.routing.response.UserResponseWithLocationsServices
-import com.example.routing.response.toResponse
+import UserRequest
 import com.mobilelive.looking4app.exposed.Location
 import com.mobilelive.looking4app.exposed.Service
 import com.mobilelive.looking4app.exposed.User
 import com.mobilelive.looking4app.repository.UserRepository
-import java.util.*
+import com.mobilelive.looking4app.routing.response.UserResponseWithLocationsServices
+import com.mobilelive.looking4app.routing.response.toResponse
 
 class UserService(
     private val userRepository: UserRepository

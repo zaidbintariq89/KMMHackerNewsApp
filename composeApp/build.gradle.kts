@@ -41,6 +41,7 @@ kotlin {
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
+            implementation(compose.material)
             implementation(compose.materialIconsExtended)
             implementation(compose.ui)
             @OptIn(ExperimentalComposeLibrary::class)
@@ -48,13 +49,10 @@ kotlin {
             implementation(projects.shared)
             implementation(libs.ktor.client.core)
             implementation(libs.kotlinx.coroutines.core)
-            implementation(libs.koin.compose)
 
             implementation(libs.voyager.navigator)
-            implementation(libs.voyager.tabNavigator)
-            implementation(libs.voyager.transitions)
-            implementation(libs.voyager.bottomSheetNavigator)
-
+            implementation(libs.voyager.navigator.tab)
+            implementation(libs.voyager.navigator.transitions)
             implementation(libs.composeImageLoader)
             implementation(libs.moko.mvvm)
             implementation(libs.ktor.client.content.negotiation)

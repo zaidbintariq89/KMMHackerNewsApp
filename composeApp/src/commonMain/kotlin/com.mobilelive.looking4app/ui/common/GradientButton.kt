@@ -25,7 +25,7 @@ fun GradientButton(
     roundedCornerShape: RoundedCornerShape,
     btnClick: () -> Unit
 ) {
-    val gradientColors = gradientColor ?: listOf(Color(0xFF484BF1), Color(0xFF673AB7))
+    val gradientColors = gradientColor ?: listOf(Color(207,0,0), Color(207,0,0))
     val cornerRadius = radius ?: 16.dp
 
     androidx.compose.material3.Button(

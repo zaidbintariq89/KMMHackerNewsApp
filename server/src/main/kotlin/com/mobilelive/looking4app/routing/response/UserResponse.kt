@@ -1,10 +1,8 @@
-package com.example.routing.response
+package com.mobilelive.looking4app.routing.response
 
 import com.mobilelive.looking4app.exposed.Location
 import com.mobilelive.looking4app.exposed.Service
-import jdk.jfr.Description
 import kotlinx.serialization.Serializable
-import java.util.UUID
 
 @Serializable
 data class UserResponse (

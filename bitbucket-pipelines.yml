@@ -1,25 +1,50 @@
-image: atlassian/default-image:2
+image: ubuntu:latest
 
 pipelines:
   branches:
-    develop:
-      # - step:
-      #     name: Install Git
-      #     script:
-      #       - apt-get update -qy
-      #       - apt-get install -y git
-
+    server-release:
       - step:
-          name: Build and Deploy
+          name: Deploy to AWS Elastic Beanstalk
+          caches:
+            - gradle
+            - pip
           script:
-            - export SERVER_FOLDER=server  
-            - git diff --name-only $BITBUCKET_COMMIT_RANGE | grep $SERVER_FOLDER
-            - if [ $? -eq 0 ]; then
-                echo "Changes detected in $SERVER_FOLDER, triggering build and deploy";
-                # Add your build commands here
-                # ./gradlew buildFatJar
-                # Add your deploy commands here
-                # Example deploy command: eb deploy your-environment-name
-            - else
-                echo "No changes in $SERVER_FOLDER, skipping build and deploy";
-            - fi
+            # Set non-interactive frontend and pre-configure tzdata
+            - export DEBIAN_FRONTEND=noninteractive
+            - ln -fs /usr/share/zoneinfo/Etc/UTC /etc/localtime
+            - apt-get update -y
+            - apt-get install -y tzdata
+            - dpkg-reconfigure --frontend noninteractive tzdata
+            
+            # Installing Dependencies
+            - apt-get install -y python3 python3-pip awscli git zip openjdk-17-jdk
+
+            # Install Elastic Beanstalk CLI
+            - pip3 install awsebcli
+
+            # Ensure JAVA_HOME is set to use JDK 17
+            - export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which javac))))
+            - export PATH=$JAVA_HOME/bin:$PATH
+
+            # Build the application
+            - chmod +x ./gradlew
+            - ./gradlew buildFatJar
+            
+            # Defining artifact file
+            - mkdir .elasticbeanstalk
+            - echo "deploy:" > .elasticbeanstalk/config.yml
+            - echo "  artifact:" "server/build/libs/server.jar" >> .elasticbeanstalk/config.yml
+
+            # Configure AWS credentials
+            - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+            - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+            - aws configure set default.region $AWS_REGION
+
+            # Deploy to Elastic Beanstalk
+            - eb init $APP_NAME --region $AWS_REGION --platform  "arn:aws:elasticbeanstalk:$AWS_REGION::platform/Corretto 17 running on 64bit Amazon Linux 2/3.6.2"
+            - eb deploy $ENV_NAME
+
+definitions:
+  caches:
+    gradle: ~/.gradle
+    pip: ~/.cache/pip
